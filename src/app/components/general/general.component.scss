@@ -1,0 +1,12 @@
+.container-cards{
+  border-top: 1px solid var(--skygrey);
+  background-color: var(--white);
+  justify-content: space-evenly;
+  display: flex;
+  padding: 1rem;
+  column-gap: 1.25rem;
+}
+
+.card-items {
+  width: 40%;
+}

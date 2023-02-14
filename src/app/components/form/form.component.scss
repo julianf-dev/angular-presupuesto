@@ -1,0 +1,33 @@
+.container{
+  padding: 2rem 0;
+  display:flex;
+  column-gap: 0.875rem;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: rgb(245, 245, 245);
+}
+
+.form-input{
+  padding: 1rem;
+  border: 0.5px solid rgb(192, 192, 192);
+}
+
+.select{
+  width: 10%;
+  padding: 0.5rem;
+}
+
+.description{
+  width: 60%;
+}
+
+.value{
+  width: 20%;
+}
+
+.add-class{
+  border: 1px solid green;
+}
+.less-class{
+  border: 1px solid var(--orange);
+}

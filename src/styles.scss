@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+/* You can add global styles to this file, and also import other style files */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+//Vars
+:root{
+  --white : #FFFFFF;
+  --grey: #6E6E6E;
+  --orange: #FF6214;
+  --skyblue: #00A9AB;
+  --skygrey: #f0ecec;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.card{
+  background-color: var(--white);
+  &-title{
+    color: var(--skyblue);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  &-data{
+    background-color: var(--skygrey);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: 1rem;
+    &__description{
+      width: 30%;
+    }
+    &__value{
+      width: 30%;
+    }
+  }
+}
+
+.title-second{
+  color: var(--orange);
+}

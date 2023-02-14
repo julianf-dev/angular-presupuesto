@@ -1,0 +1,19 @@
+<div class="container">
+  <select name="more"  class="form-input select">
+    <option
+      [(ngModel)]="signal"
+      [ngClass]="isAvailable ? 'add-class' : 'deactivate-class'"
+    >
+      +
+    </option>
+    <option
+      [(ngModel)]="signal"
+      [ngClass]="isAvailable ? 'less-class' : 'deactivate-class'"
+    >
+      -
+    </option>
+  </select>
+  <input class="form-input description" type="text" placeholder="Description" />
+  <input class="form-input value" type="number" placeholder="200" />
+  <span></span>
+</div>
