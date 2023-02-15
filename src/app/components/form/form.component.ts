@@ -8,11 +8,5 @@ import { Component } from '@angular/core';
 export class FormComponent {
 
   isAvailable:boolean = false;
-  signal:string = ''
-
-  if (signal = '+') {
-    this.isAvailable = true;
-    console.log(this.signal)
-  }
-
+  selectedValue:string = '';
 }
