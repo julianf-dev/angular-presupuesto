@@ -1,19 +1,33 @@
-<div class="container">
-  <select name="more"  class="form-input select">
-    <option
-      [(ngModel)]="signal"
-      [ngClass]="isAvailable ? 'add-class' : 'deactivate-class'"
-    >
-      +
-    </option>
-    <option
-      [(ngModel)]="signal"
-      [ngClass]="isAvailable ? 'less-class' : 'deactivate-class'"
-    >
-      -
-    </option>
-  </select>
-  <input class="form-input description" type="text" placeholder="Description" />
-  <input class="form-input value" type="number" placeholder="200" />
-  <span></span>
-</div>
+<form #miFormulario="ngForm" class="container">
+  <!-- <select [(ngModel)]="selectedValue" class="form-input select">
+    <option value="+">+</option>
+    <option value="-">-</option>
+  </select> -->
+  <input
+    required
+    class="form-input description"
+    type="text"
+    placeholder="Description"
+    name="description"
+    #inputDescription="ngModel"
+    [(ngModel)]="description"
+    [ngClass]="{
+      'valid': inputDescription.valid,
+      'invalid': !inputDescription.valid && inputDescription.touched
+    }"
+  />
+  <input
+    class="form-input value"
+    type="number"
+    placeholder="200"
+    name="value"
+    [(ngModel)]="value"
+  />
+  <button
+    (click)="onAddValue()"
+    type="submit"
+    [disabled]="!miFormulario.form.valid"
+  >
+    <i class="fa-regular fa-check">Agregar</i>
+  </button>
+</form>

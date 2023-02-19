@@ -5,10 +5,9 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IncomeComponent } from './components/income/income.component';
-import { DischargeComponent } from './components/discharge/discharge.component';
+import { ExpensesComponent } from './components/expenses/expenses.component';
 import { FormsModule } from '@angular/forms';
 import { FormatPipe } from './pipes/format.pipe';
-import { GeneralComponent } from './components/general/general.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +15,8 @@ import { GeneralComponent } from './components/general/general.component';
     FormComponent,
     HeaderComponent,
     IncomeComponent,
-    DischargeComponent,
+    ExpensesComponent,
     FormatPipe,
-    GeneralComponent
   ],
   imports: [
     FormsModule,
