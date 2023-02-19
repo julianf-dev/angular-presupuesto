@@ -18,14 +18,18 @@ export class FormComponent {
 
   }
 
-  onAddValue(){
-    console.log(this.selectedValue)
-    let item = new Bills(this.description, this.value);
+  onSubmit(){
+    const  newItem = {
+      description: this.description,
+      value: this.value
+    };
+
     if(this.selectedValue === '+'){
-      this.incomeService.addIcome(item)
+      this.incomeService.addIcome(newItem);
+      this.incomeService.sumIncome();
       this.description = '';
       this.value = 0;
-      this.selectedValue = ''
+      this.selectedValue = '';
     }
     else{
       console.log('Holi')

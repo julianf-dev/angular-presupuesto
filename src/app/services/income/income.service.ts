@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Bills } from '../../class/Bills.model';
 
 @Injectable({
@@ -8,15 +9,27 @@ export class IncomeService {
 
   constructor() { }
 
-  sum:number = 0
-  income: Bills[]=
+  private incomeSubject = new BehaviorSubject<number>(0);
+  income$ = this.incomeSubject.asObservable();
+  private income: Bills[]=
   [
-      new Bills('swetter',20333)
+    {
+      description: 'Sweeter',
+      value: 22300
+    }
   ]
 
-  addIcome(bill: Bills){
-      this.income.push(bill);
-      console.log('Incone add correctly')
+  addIcome(newIncome: Bills){
+      this.income.push(newIncome);
+      this.incomeSubject.next(this.sumIncome());
+  }
+
+  getIncome(){
+    return this.income
+  }
+
+  sumIncome(){
+      return this.income.reduce((sum, item) => sum + item.value, 0);
   }
 
 }

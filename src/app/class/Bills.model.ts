@@ -1,6 +1,12 @@
 export class Bills{
-  constructor(
-    public description: string,
-    public value: number,
-  ){}
+
+  id?:number;
+  description:string;
+  value:number;
+
+  constructor(id:number, description: string, value:number){
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  }
 }

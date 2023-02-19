@@ -1,8 +1,12 @@
 <form #miFormulario="ngForm" class="container">
-  <!-- <select [(ngModel)]="selectedValue" class="form-input select">
+  <select
+    [(ngModel)]="selectedValue"
+    name="selectedValue"
+    class="form-input select"
+  >
     <option value="+">+</option>
     <option value="-">-</option>
-  </select> -->
+  </select>
   <input
     required
     class="form-input description"
@@ -12,8 +16,8 @@
     #inputDescription="ngModel"
     [(ngModel)]="description"
     [ngClass]="{
-      'valid': inputDescription.valid,
-      'invalid': !inputDescription.valid && inputDescription.touched
+      valid: inputDescription.valid,
+      invalid: !inputDescription.valid && inputDescription.touched
     }"
   />
   <input
@@ -24,7 +28,7 @@
     [(ngModel)]="value"
   />
   <button
-    (click)="onAddValue()"
+    (click)="onSubmit()"
     type="submit"
     [disabled]="!miFormulario.form.valid"
   >
