@@ -1,9 +1,5 @@
-<div class="card">
-  <div class="card-title title-second" >
-    <p>Egresos:</p>
-  </div>
-  <div class="card-data">
-    <p class="card-data__description">Description</p>
-    <p class="card-data__value">Value</p>
-  </div>
+<div class="card-data">
+  <span class="card-data__id">{{indice + 1}}</span>
+  <p class="card-data__description">{{expense.description}}</p>
+  <p class="card-data__value">{{expense.value | currency}}</p>
 </div>

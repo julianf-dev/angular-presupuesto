@@ -22,14 +22,27 @@
 <div>
   <app-form></app-form>
 </div>
-<div>
-  <div class="card-title" >
-    <p>Ingresos:</p>
+<div class="container-cards">
+  <div class="card">
+    <div class="card-title" >
+      <p>Ingresos:</p>
+    </div>
+    <app-income
+      *ngFor="let incomeItem of income;let i = index"
+      [income]="incomeItem"
+      [indice]="i"
+    >
+    </app-income>
   </div>
-  <app-income class=""
-    *ngFor="let incomeItem of income;let i = index"
-    [income]="incomeItem"
+  <div class="card">
+    <div class="card-title title-second">
+      <p>Egresos:</p>
+    </div>
+    <app-expenses
+    *ngFor="let expenseItem of expenses;let i = index"
+    [expense]="expenseItem"
     [indice]="i"
-  >
-  </app-income>
+    >
+    </app-expenses>
+  </div>
 </div>

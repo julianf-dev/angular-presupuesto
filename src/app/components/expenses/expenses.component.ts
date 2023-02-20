@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Bills } from 'src/app/class/Bills.model';
 
 @Component({
   selector: 'app-expenses',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./expenses.component.scss']
 })
 export class ExpensesComponent {
+  @Input()
+  expense!: Bills;
+  @Input()
+  indice!: number;
 
+  constructor(){
+
+  }
 }

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IncomeService } from 'src/app/services/income/income.service';
 import { Bills } from '../../class/Bills.model'
 
 @Component({
@@ -14,7 +13,6 @@ export class IncomeComponent {
   @Input()
   indice!: number;
 
-  constructor(private incomeService: IncomeService){
-
+  constructor(){
   }
 }
