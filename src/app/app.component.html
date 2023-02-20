@@ -1,48 +1,11 @@
-<div class="box">
-  <div>
-    <h3 class="title">Presupuesto disponible:</h3>
-    <p class="title_value">{{ totalValue | currency}}</p>
-  </div>
-  <div class="data">
-    <div class="data__account">
-      <span class="data__account-title">INGRESOS</span>
-      <div class="data__account-box">
-        <span class="data__account-value">{{ingresos | currency}}</span>
-      </div>
-    </div>
-    <div class="data__account">
-      <span class="data__account-title">EGRESOS</span>
-      <div class="data__account-box">
-        <span class="value">{{egresos | currency}}</span>
-        <span class="percent">{{percent | percent}}</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div>
-  <app-form></app-form>
-</div>
+<app-header
+  [totalValue] = "getTotalValue()"
+  [ingresos] = "getTotalIncome()"
+  [egresos] = "getTotalExpense()"
+  [percent] = "getPercent()"
+></app-header>
+<app-form></app-form>
 <div class="container-cards">
-  <div class="card">
-    <div class="card-title" >
-      <p>Ingresos:</p>
-    </div>
-    <app-income
-      *ngFor="let incomeItem of income;let i = index"
-      [income]="incomeItem"
-      [indice]="i"
-    >
-    </app-income>
-  </div>
-  <div class="card">
-    <div class="card-title title-second">
-      <p>Egresos:</p>
-    </div>
-    <app-expenses
-    *ngFor="let expenseItem of expenses;let i = index"
-    [expense]="expenseItem"
-    [indice]="i"
-    >
-    </app-expenses>
-  </div>
+  <app-income> </app-income>
+  <app-expenses> </app-expenses>
 </div>

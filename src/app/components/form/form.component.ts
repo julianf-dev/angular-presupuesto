@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BillService,  } from 'src/app/services/bills/bills.service';
+import { ExpenseService } from 'src/app/services/expense/expense.service';
+import { IncomeService } from 'src/app/services/income.service';
 
 @Component({
   selector: 'app-form',
@@ -13,7 +14,8 @@ export class FormComponent {
   description: string = '';
 
   constructor(
-    private billService: BillService,
+    private incomeService: IncomeService,
+    private expenseService: ExpenseService,
   ) {}
 
   onSubmit() {
@@ -24,21 +26,21 @@ export class FormComponent {
 
     switch (this.selectedValue) {
       case '+':
-        this.billService.addIcome(newItem);
-        this.billService.sumIncome();
-        this.description = '';
-        this.value = 0;
-        this.selectedValue = '';
+        this.incomeService.addIcome(newItem);
+        this.cleanForm();
         break;
       case '-':
-        this.billService.addExpense(newItem);
-        this.billService.sumExpense();
-        this.description = '';
-        this.value = 0;
-        this.selectedValue = '';
+        this.expenseService.addExpense(newItem);
+        this.cleanForm();
         break;
       default:
         alert('No has selecconado nada.');
     }
+  }
+
+  cleanForm(){
+    this.description = '';
+    this.value = 0;
+    this.selectedValue = '';
   }
 }

@@ -1,6 +1,15 @@
-
-  <div class="card-data">
-    <span class="card-data__id">{{indice + 1}}</span>
-    <p class="card-data__description">{{income.description}}</p>
-    <p class="card-data__value">{{income.value | currency}}</p>
+<div class="card">
+    <h2 class="card-title">Ingresos:</h2>
+  <div class="card-data" *ngFor="let incomeItem of income; let i = index">
+    <span class="card-data__id">{{ i + 1 }}</span>
+    <p class="card-data__description">{{ incomeItem.description }}</p>
+    <div class="card-data__right">
+      <p class="card-data__value">{{ incomeItem.value | currency }}</p>
+      <div class="card-data__eliminar">
+        <button class="btn">
+          <i class="fas fa-trash-alt" (click)="onDelete(i)"></i>
+        </button>
+      </div>
+    </div>
   </div>
+</div>

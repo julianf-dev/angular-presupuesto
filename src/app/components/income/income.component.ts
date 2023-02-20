@@ -1,18 +1,22 @@
-import { Component, Input } from '@angular/core';
-import { Bills } from '../../class/Bills.model'
+import { Component, OnInit } from '@angular/core';
+import { Income } from 'src/app/class/Income.model';
+import { IncomeService } from 'src/app/services/income.service';
 
 @Component({
   selector: 'app-income',
   templateUrl: './income.component.html',
-  styleUrls: ['./income.component.scss']
+  styleUrls: ['./income.component.scss'],
 })
-export class IncomeComponent {
+export class IncomeComponent implements OnInit {
+  income: Income[] = [];
 
-  @Input()
-  income!: Bills;
-  @Input()
-  indice!: number;
+  constructor(private incomeService: IncomeService) {}
 
-  constructor(){
+  ngOnInit(): void {
+    this.income = this.incomeService.getIncome();
+  }
+
+  onDelete(index:number){
+    this.incomeService.deleteIncome(index);
   }
 }
