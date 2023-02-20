@@ -1,50 +1,53 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Bills } from './class/Bills.model';
-import { ExpensesService } from './services/expenses/expenses.service';
-import { IncomeService } from './services/income/income.service';
+import { BillService } from './services/bills/bills.service';
+import {  } from './services/bills/bills.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnChanges {
+export class AppComponent implements OnInit {
   title = 'Presupuesto Disponible';
   ingresos: number = 0;
   egresos: number = 0;
-  percent: number = this.egresos / this.ingresos;
+  percent: number = 0;
   income: Bills[] = [];
   expenses: Bills[] = [];
   totalValue: number = 0;
 
   constructor(
-    private incomeService: IncomeService,
-    private expenseService: ExpensesService
+    private billService: BillService,
   ) {}
 
   ngOnInit(): void {
     this.getIncome();
     this.getExpense();
-    this.totalValue = this.ingresos - this.egresos
+    this.getTotalValue();
+    this.percent = this.egresos / this.ingresos;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.totalValue = this.ingresos - this.egresos
-  }
 
   getIncome(){
-    this.incomeService.income$.subscribe((income) => {
+    this.billService.income$.subscribe((income) => {
       this.ingresos = income;
     });
-    this.income = this.incomeService.getIncome();
-    this.ingresos = this.incomeService.sumIncome();
+    this.income = this.billService.getIncome();
+    this.ingresos = this.billService.sumIncome();
   }
 
   getExpense(){
-    this.expenseService.expense$.subscribe((expense) => {
+    this.billService.expense$.subscribe((expense) => {
       this.egresos = expense;
     });
-    this.expenses = this.expenseService.getExpense();
-    this.egresos = this.expenseService.sumExpense();
+    this.expenses = this.billService.getExpense();
+    this.egresos = this.billService.sumExpense();
+  }
+
+  getTotalValue(){
+    this.billService.totalValue$.subscribe((total) =>{
+      this.totalValue = total
+    })
   }
 }
