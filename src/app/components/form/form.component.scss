@@ -10,11 +10,15 @@
 .form-input{
   padding: 1rem;
   border: 0.5px solid rgb(192, 192, 192);
-  &.valid{
-    border: 2px solid green;
+  &:focus{
+    outline: none;
+    border: 2px solid var(--skygreen);
   }
   &.invalid{
     border: 2px solid red;
+  }
+  &.borderClass:focus{
+    border: 2px solid var(--skyorange);
   }
 }
 
@@ -31,9 +35,17 @@
   width: 20%;
 }
 
-.add-class{
-  border: 1px solid green;
-}
-.less-class{
-  border: 1px solid var(--orange);
+.btn-form{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  *.ion-ios-checkmark-outline{
+    font-size: 2.5rem;
+    &.inconClassGreen{
+      color: var(--skygreen);
+    }
+    &.iconClass{
+      color: var(--skyorange);
+    }
+  }
 }

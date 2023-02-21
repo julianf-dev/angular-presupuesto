@@ -4,9 +4,9 @@
     <span class="card-data__id">{{ i + 1 }}</span>
     <p class="card-data__description">{{ incomeItem.description }}</p>
     <div class="card-data__right">
-      <p class="card-data__value">{{ incomeItem.value | currency }}</p>
+      <p class="card-data__value income-value">{{ incomeItem.value | currency: 'USD' : '$' : '1.2-2' }}</p>
       <div class="card-data__eliminar">
-        <button class="btn">
+        <button class="btn income-delete">
           <i class="fas fa-trash-alt" (click)="onDelete(i)"></i>
         </button>
       </div>

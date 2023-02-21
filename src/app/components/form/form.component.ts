@@ -8,8 +8,9 @@ import { IncomeService } from 'src/app/services/income.service';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
+
   isAvailable: boolean = false;
-  selectedValue: string = '';
+  typeSelected: string = 'addIncome';
   value: number = 0;
   description: string = '';
 
@@ -18,18 +19,19 @@ export class FormComponent {
     private expenseService: ExpenseService,
   ) {}
 
+
+
   onSubmit() {
     const newItem = {
       description: this.description,
       value: this.value,
     };
-
-    switch (this.selectedValue) {
-      case '+':
+    switch (this.typeSelected) {
+      case 'addIncome':
         this.incomeService.addIcome(newItem);
         this.cleanForm();
         break;
-      case '-':
+      case 'addExpense':
         this.expenseService.addExpense(newItem);
         this.cleanForm();
         break;
@@ -41,6 +43,11 @@ export class FormComponent {
   cleanForm(){
     this.description = '';
     this.value = 0;
-    this.selectedValue = '';
+  }
+
+  typeOperator(event: Event){
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedValue = selectElement.value;
+    this.typeSelected = selectedValue;
   }
 }

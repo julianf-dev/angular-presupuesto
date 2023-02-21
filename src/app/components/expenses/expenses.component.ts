@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Expense } from 'src/app/class/Expense.model';
 import { ExpenseService } from 'src/app/services/expense/expense.service';
 import { IncomeService } from 'src/app/services/income.service';
@@ -11,11 +11,9 @@ import { IncomeService } from 'src/app/services/income.service';
 export class ExpensesComponent {
 
   expenses: Expense[] = [];
-  ingresoTotal: number;
+  @Input() income!: number;
 
-  constructor(private expenseService: ExpenseService,
-    private incomeService: IncomeService) {
-    this.ingresoTotal = this.expenseService.getTotalExpense() + this.incomeService.getTotalIncome()
+  constructor(private expenseService: ExpenseService) {
   }
 
   ngOnInit(): void {
@@ -27,7 +25,7 @@ export class ExpensesComponent {
   }
 
   getPercent(expense: Expense) {
-    return expense.value / this.ingresoTotal
+    return expense.value / this.income
   }
 
 }

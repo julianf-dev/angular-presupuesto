@@ -8,11 +8,13 @@
 
 //Vars
 :root {
-  --white: #ffffff;
-  --grey: #6e6e6e;
-  --orange: #ff6214;
-  --skyblue: #00a9ab;
-  --skygrey: #f0ecec;
+  --white    : #ffffff;
+  --grey     : #6e6e6e;
+  --orange   : #ff6214;
+  --skyblue  : #00a9ab;
+  --skygrey  : #f0ecec;
+  --skyorange: #ff874b;
+  --skygreen : #28B9B5;
 }
 
 html {
@@ -58,11 +60,21 @@ body {
       float: left;
     }
     &__percent{
-      background-color: #ff874b;
+      background-color: var(--skyorange);
       padding: 0.25rem 0.5rem;
       font-size: 0.875rem;
       color: var(--white);
     }
+  }
+
+  .expense-delete,
+  .expense-value{
+    color: var(--orange);
+  }
+
+  .income-delete,
+  .income-value{
+    color: var(--skygreen);
   }
 
   .btn{
@@ -71,7 +83,6 @@ body {
     border: none;
     cursor: pointer;
     line-height: 1;
-    color: #28B9B5;
   }
 
   .card-data:hover .btn {
@@ -82,10 +93,10 @@ body {
     transform: translateY(2px);
   }
   .card-data:hover .card-data__value {
-    transform: translateX(-20px);
+    transform: translateX(-5px);
   }
   .card-data:hover .elemento_porcentaje {
-    transform: translateX(-20px);
+    transform: translateX(-30px);
   }
 
   .title-second {

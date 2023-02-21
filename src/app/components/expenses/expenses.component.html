@@ -1,19 +1,22 @@
 <div class="card">
-
-<div class="card-title title-second">
-  <p>Egresos:</p>
-</div>
-<div class="card-data"     *ngFor="let expenseItem of expenses;let i = index">
-  <span class="card-data__id">{{i + 1}}</span>
-  <p class="card-data__description">{{expenseItem.description}}</p>
-  <div class="card-data__right">
-    <p class="card-data__value">{{ expenseItem.value | currency }}</p>
-    <span class="card-data__percent">{{getPercent(expenseItem) | percent}}</span>
-    <div class="card-data__eliminar">
-      <button class="btn">
-        <i class="fas fa-trash-alt" (click)="onDelete(i)"></i>
-      </button>
+  <div class="card-title title-second">
+    <p>Egresos:</p>
+  </div>
+  <div class="card-data" *ngFor="let expenseItem of expenses; let i = index">
+    <span class="card-data__id">{{ i + 1 }}</span>
+    <p class="card-data__description">{{ expenseItem.description }}</p>
+    <div class="card-data__right">
+      <p class="card-data__value expense-value">
+        {{ expenseItem.value | currency : "USD" : "$" : "1.2-2" }}
+      </p>
+      <span class="card-data__percent">{{
+        getPercent(expenseItem) | percent
+      }}</span>
+      <div class="card-data__eliminar ">
+        <button class="btn expense-delete">
+          <i class="fas fa-trash-alt" (click)="onDelete(i)"></i>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -1,14 +1,16 @@
-<form #miFormulario="ngForm" class="container">
+<form  class="container" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
   <select
-    [(ngModel)]="selectedValue"
+    (change)="typeOperator($event)"
     name="selectedValue"
-    class="form-input select"
+    class="form-input"
+    [ngClass]="{
+      borderClass: typeSelected === 'addExpense'
+    }"
   >
-    <option value="+">+</option>
-    <option value="-">-</option>
+    <option value="addIncome" selected>+</option>
+    <option value="addExpense">-</option>
   </select>
   <input
-    required
     class="form-input description"
     type="text"
     placeholder="Description"
@@ -16,22 +18,31 @@
     #inputDescription="ngModel"
     [(ngModel)]="description"
     [ngClass]="{
-      valid: inputDescription.valid,
-      invalid: !inputDescription.valid && inputDescription.touched
+      invalid: !inputDescription.valid && inputDescription.touched,
+      borderClass: typeSelected === 'addExpense'
     }"
+    required
   />
   <input
     class="form-input value"
     type="number"
     placeholder="200"
     name="value"
+    #inputValue="ngModel"
     [(ngModel)]="value"
+    [ngClass]="{
+      borderClass: typeSelected === 'addExpense'
+    }"
+    min="0"
+    required
   />
-  <button
-    (click)="onSubmit()"
-    type="submit"
-    [disabled]="!miFormulario.form.valid"
-  >
-    <i class="fa-regular fa-check">Agregar</i>
+  <button type="submit" class="btn-form">
+    <i
+      [ngClass]="{
+        iconClass: typeSelected === 'addExpense',
+        inconClassGreen: typeSelected === 'addIncome'
+      }"
+      class="ion-ios-checkmark-outline"
+    ></i>
   </button>
 </form>
