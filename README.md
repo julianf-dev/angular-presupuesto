@@ -1,27 +1,45 @@
-# AngularBudget
+# Shop-Store
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+An example of a budget using Angular
 
-## Development server
+## Vista del proyecto 🚀
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+building...
 
-## Code scaffolding
+### Instalación 🔧
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+git clone  https://github.com/julianf-dev/angular-presupuesto.git
+```
 
-## Build
+```
+    npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+    ng serve
+```
 
-## Running unit tests
+## Construido con 🛠️
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular
+- HTML
+- SASS
+- VITE
+- TypeScript
 
-## Running end-to-end tests
+## Contribuyendo 🖇️
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Cualquier contirbución al proyecto es bien recibida !
 
-## Further help
+## Autor ✒️
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Julian F** - [julian1f](https://github.com/julianf-dev)
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE](LICENSE) para detalles
+
+---
+
+Hecho con ❤️ por [julian1f](https://github.com/julianf-dev) 😊
